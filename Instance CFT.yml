@@ -8,14 +8,13 @@ Resources:
       GroupDescription: Instance creation using CFT
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
+          FromPort:22
+          ToPort:22
           CidrIp: 0.0.0.0/0
-          - IpProtocol: tcp
-          FromPort: 8080
-          ToPort: 8080
+        - IpProtocol: tcp
+          FromPort:8080
+          ToPort:8080
           CidrIp: 0.0.0.0/0
-
   CromaVikas01:
     Type: AWS::EC2::Instance
     Properties:
