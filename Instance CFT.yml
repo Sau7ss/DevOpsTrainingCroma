@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template to create a server
+
+Resources:
+  CromaSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Instance creation using CFT
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+  CromaVikas01:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.small
+      KeyName: DO-PW
+      ImageId: ami-02f853b31ccb5871f
+      SecurityGroupIds:
+        - !Ref CromaSecurityGroup
+      Tags:
+        - Key: Name
+          Value: Instance creation
